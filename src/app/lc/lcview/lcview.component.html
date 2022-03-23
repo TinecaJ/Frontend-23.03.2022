@@ -1,0 +1,39 @@
+<mat-card class="user-details" *ngIf= "userdetails">
+    <mat-card-title color:primary;>Leadership and Comittment Report</mat-card-title>
+    <br> 
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">ID:</b>{{userdetails._id}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Information Security Policy and Objectives:</b>{{userdetails.Policy}}</mat-card-content>
+    
+    <mat-card-content><b style="padding:10px;">Integration of Information Security Managment System:</b>{{userdetails.Integration}}</mat-card-content>
+</mat-card>
+<br> 
+<mat-card>
+    <mat-card-content><b style="padding:10px;">Availability of Resources:</b>{{userdetails.AvailabilityofResources}}</mat-card-content>
+    
+    <mat-card-content><b style="padding:10px;">Communication:</b>{{userdetails.Communication}}</mat-card-content>
+    <br>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-content><b style="padding:10px;">Outcome Met:</b>{{userdetails.Improvement}}</mat-card-content>
+    
+    <mat-card-content><b style="padding:10px;">Direction and Support:</b>{{userdetails.Achievements}}</mat-card-content>
+    <br>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-content><b style="padding:10px;">Improvement:</b>{{userdetails.Demo}}</mat-card-content>
+    
+    <mat-card-content><b style="padding:10px;">Demonstration of Leadership:</b>{{userdetails.Leadership}}</mat-card-content>
+    <br>
+</mat-card>
+
+<mat-card>
+    <mat-card-content><b style="padding:10px;">Addtional Information:</b>{{userdetails.Other}}</mat-card-content>
+    
+</mat-card>
+</mat-card>

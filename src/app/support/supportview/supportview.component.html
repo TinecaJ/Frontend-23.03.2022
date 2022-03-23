@@ -1,0 +1,32 @@
+<mat-card class="user-details" *ngIf= "userdetails">
+    <mat-card-title color:primary;>Support Report</mat-card-title>
+    <br> 
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">ID:</b>{{userdetails._id}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Resources:</b>{{userdetails.Resources}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.Resourcestick}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Competence:</b>{{userdetails.Competence}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.Competencetick}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Awareness:</b>{{userdetails.Awareness}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.Awarenesstick}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Communication:</b>{{userdetails.Communication}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.Comtick}}</mat-card-content>
+</mat-card>
+    <br>
+</mat-card>

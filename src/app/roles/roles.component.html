@@ -1,0 +1,176 @@
+<div class="row w-102">
+  <div class="col-lg-12">
+      <app-navbar></app-navbar>
+  </div>
+</div>
+
+<div class="row w-100">
+  <div class="col-lg-2">
+      <app-sidenav class="sidebar"></app-sidenav>
+  </div>
+
+  <div class="col-lg-10 mb-250 mt-10">
+    
+    <mat-card class="w-80 m-auto">
+
+      <div class="row mb-2 ">
+          <div class="col-lg-10">
+              <button mat-raised-button class="loginBtn  mr-2"  color="primary" type="button" (click)="showOrgRoleFun()">Add New Entry</button>
+              
+          </div>
+      </div>
+    </mat-card>
+    
+        <mat-card class="w-80 m-auto mt-5">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h3 class="cen">Roles and Responsibilities</h3>
+            </div>
+          
+          </div>
+
+          <div>
+            <p><b>Please ensure that that the following reposibilities are assigned to an employee(s):</b> </p>
+          </div>
+
+          <div>
+            <p>
+              <ul>
+             <li> Ensures that information security policy and objectives are established and are compatible  with the
+              direction of the organization.</li> 
+        <li>Ensures that the requirements are integrated into the processes.</li>
+         <li>Ensures that resources for ISMS is available.</li>
+         <li>Ensures that employess are aware of the importance of an effective ISMS.</li>
+         <li>Ensures that the ISMS conforms to the requirments.</li>
+         <li>Ensures the ISMS achieves the required outcome(s).</li>
+        <li>Directs and supports employees to ensure effectiveness of the ISMS.</li> 
+         <li>Promotes continual improvment.</li>
+         <li>Support other management roles to demonstate their leadership</li>
+        </ul>
+          
+      
+          </div>
+
+
+          <mat-card>
+            <div class="container" style="margin-left:0%">
+                <table class="table table-bordered table-striped">
+                   
+                    <thead>
+                        <tr>
+                      
+                        <th>Name</th>
+                        <th>Job Title</th>
+                        <th>Responsibility</th>
+                        <th>Action</th>
+                      
+                    </tr>
+            
+                    </thead>
+                
+                    <tbody>
+                    <tr *ngFor="let role of roles">
+                      
+                        <td><span >{{role.Name}}
+                          |<a class="action-link" [routerLink]="['/roles/edit', role._id]">Edit</a>
+                              |<a class="action-link" [routerLink]="['/roles/view', role._id]">View</a>
+                        </span></td>
+                        
+                        <td><span>{{role.Job_title}}</span></td>
+                        <td><span>{{role.Responsibility}}</span></td>
+                        <td>
+                        <mat-action-row>
+                          <button mat-button color="primary" (click)="onDelete(role._id)">DELETE</button>
+                          
+                      </mat-action-row> </td>
+                      </tr>
+                    </tbody>
+            
+            
+                </table>
+            </div>
+            </mat-card>
+        </mat-card>
+    
+  
+
+                        
+  
+
+  <div  class="sect mt-5" *ngIf="showOrgRoleCard">
+    <form [formGroup]= "roleform" (ngSubmit)="onAdd()">
+      <mat-card >
+        <mat-card-content >
+            <div>
+           
+                <mat-card>
+            <mat-form-field>
+                    <mat-label>Positon</mat-label>
+                    <input matInput  type="number" 
+                    class="form-control" 
+                    id="Position" 
+                     formControlName="Position" 
+                     placeholder="Enter Position">
+                </mat-form-field><br>
+             </mat-card><br>
+    
+              <mat-card>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput  type="text"
+                    class="form-control" 
+                    id="Name" placeholder="Enter Name" 
+                    formControlName="Name">
+                </mat-form-field><br>
+            
+            </mat-card><br>
+              
+            <br>
+            <mat-card>
+                <mat-form-field>
+                    <mat-label>Job Title</mat-label>
+                    <input matInput type="text" 
+                    class="form-control" 
+                    id="Job_title"
+                     formControlName="Job_title"
+                      placeholder="Job Title">
+                </mat-form-field>
+            </mat-card>
+            <br>
+            <mat-card>
+              <mat-form-field>
+                  <mat-label>Job Responsibility</mat-label>
+                  <input matInput type="text" 
+                  class="form-control" 
+                  id="Responsibility"
+                   formControlName="Responsibility"
+                    placeholder="Responsibility">
+              </mat-form-field>
+          </mat-card>
+    
+          <div class="row">
+            <div class="col-12 text-center mt-3">
+              <button  mat-raised-button (click)="hideOrgRoleFun()" color="primary" class="mr-2">Close</button>
+              <button class="ml-2"  mat-raised-button type="submit" [disabled]="!roleform.valid" color="primary">Submit</button>
+            </div>
+          </div>
+           
+            </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+  </div>
+</div>
+
+<br>
+    
+  
+
+        
+
+
+
+    
+  
+

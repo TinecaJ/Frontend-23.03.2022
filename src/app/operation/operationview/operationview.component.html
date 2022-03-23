@@ -1,0 +1,27 @@
+<mat-card class="user-details" *ngIf= "userdetails">
+    <mat-card-title color:primary;>Operation Report</mat-card-title>
+    <br> 
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">ID:</b>{{userdetails._id}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Planning Implementation:</b>{{userdetails.PndI}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.PItick}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Risk Assessment Implementation</b>{{userdetails.RAndI}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.AItick}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Risk Treatment Implementation:</b>{{userdetails.RTndI}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Data Uploaded:</b>{{userdetails.RTItick}}</mat-card-content>
+</mat-card>
+    <br>
+    
+</mat-card>

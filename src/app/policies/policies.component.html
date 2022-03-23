@@ -1,0 +1,153 @@
+
+<div class="row w-102">
+  <div class="col-lg-12">
+      <app-navbar></app-navbar>
+  </div>
+</div>
+
+<div class="row w-100">
+  <div class="col-lg-2">
+      <app-sidenav class="sidebar"></app-sidenav>
+  </div>
+
+  <div class="col-lg-10 mb-250 mt-10">
+    <mat-card class="w-80 m-auto">
+
+      <div class="row mb-2">
+          <div class="col-lg-12 ">
+              <button mat-raised-button class="loginBtn  mr-2"  color="primary" type="button" (click)="showOrgPolicyFun()">Add New Entry</button>
+             
+          </div>
+      </div>
+
+      <div class="cen" >
+        <h1>Policy</h1> 
+        </div>
+        <br>
+        <br>
+        <p  style="text-align:center;margin-left: 5%;margin-right: 5%;"><b>The infromation security policy should describe the importance of the ISMS for the organization and should be uploaded in the form of a pdf or word document. Management should establish an information security policy that:</b></p>
+       
+      <mat-card>
+        <div class="container" style="margin-left:0%">
+            <table class="table table-bordered table-striped">
+               
+                <thead>
+                    <tr>
+                  
+                    <th>Data Entered</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pes of policies" >
+                        <td><span >{{pes.Appropriate}}<br>
+                          |<a class="action-link" [routerLink]="['/policies/edit', pes._id]">Edit</a>
+                          |<a class="action-link" [routerLink]="['/policies/view', pes._id]">View</a>
+                           </span></td>
+                           <td>
+                            <mat-action-row>
+                                <button mat-button color="primary" (click)="onDelete(pes._id)">DELETE</button>
+                            </mat-action-row></td>
+                    </tr>
+                </tbody>
+        
+        
+            </table>
+        </div>
+        </mat-card>
+        
+
+<div class="sect"  class="sect mt-5" *ngIf="showOrgPolicyCard">
+  <form [formGroup]= "policyform" (ngSubmit)="onAdd()">
+
+    <div class="form-check">
+        
+        <input class="form-check-input" type="checkbox" value="" color="violet" formControlName="Objectives"  id="Objectives">
+        <label class="form-check-label" for="Objectives" 
+        matTooltip="The information security policy should reflect the organization’s business situation, culture, 
+        issues and concerns relating to the information security. The extent of the information security policy should be
+         in accordance with the purpose and the culture of the organization. Its important that the readers of the policy 
+         can identify themselves with the direction of the policy."
+        aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+        Is Appropriate
+        </label>
+
+      </div>
+        <br>
+      <div class="form-check">
+        
+        <input class="form-check-input" type="checkbox" value="" formControlName="Appropriate"  id="Appropriate">
+        <label class="form-check-label" for="Appropriate" 
+        matTooltip="The information security policy can either include information security objectives or describe the
+         framework for which information security policies are set."
+        aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+        Includes Objectives
+        </label>
+    
+      </div>
+      <br>
+      <div class="form-check">
+      
+        <input class="form-check-input" type="checkbox" value=""  formControlName="CommitmentReq" id="CommitmentReq">
+        <label class="form-check-label" for="CommitmentReq" 
+        matTooltip="The information security policy should contain clear statements from top management on its commitment to
+         satisfy information security policy related requirements."
+        aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+        Includes Commitment
+        </label>
+   
+      </div>
+      <br>
+      <div class="form-check">
+       
+        <input class="form-check-input" type="checkbox" value="" formControlName="Available"  id="Available">
+        <label class="form-check-label" for="Available" 
+        matTooltip="Top management should decide to which interested party the infromation should be communicated."
+        aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+        Is Available
+        </label>
+    
+      </div>
+      <br>
+      <div class="form-check" color="primary">
+      
+        <input class="form-check-input" type="checkbox" value="" formControlName="CommunicatedOrg"  id="CommunicatedOrg">
+        <label class="form-check-label" for="CommunicatedOrg" 
+        matTooltip="The information security policy should be communicated to all persons within the scope of the ISMS.
+         Its format and language should be appropriate so that it is easily understandbale by all recipients."
+        aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+        Communication
+        </label>
+    
+      </div>
+      <br>
+  
+      <mat-card>
+        <mat-form-field>
+                <mat-label>Enter Addtional Informtion</mat-label>
+                <input matInput type="text" 
+                class="form-control" 
+                id="Othertxt" 
+                 formControlName="Othertxt" 
+                 placeholder="Enter Additional Information">
+            </mat-form-field><br>
+         </mat-card><br>
+  
+            <div>
+                <input type="file" name="profile" (change)="onFileSelect($event)" />
+              </div><br>
+
+          
+          <div>
+            <button style="margin-left:45% " mat-raised-button (click)="hideOrgPolicyFun()" color="primary" class="mr-2">Close</button>
+            <button  mat-raised-button [disabled]= "!policyform.valid" color="primary">Submit</button>
+            
+          </div>
+  </form>
+        </div>
+    </mat-card>
+  </div>
+</div>
+
+
+    

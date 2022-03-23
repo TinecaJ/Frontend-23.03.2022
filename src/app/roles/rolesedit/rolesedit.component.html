@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+        <mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Entry no. :</mat-label>
+        <input
+        matInput type="string"
+            formControlName="Position">
+    </mat-form-field>
+    
+</p>
+
+</mat-card><br>
+<mat-card>
+
+<p>
+    <mat-form-field>
+        <mat-label>Job Title</mat-label>
+        <input
+        matInput type="string"
+           formControlName="Job_title">
+    </mat-form-field>
+        
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Responsibility</mat-label>
+        <input
+        matInput type="string"
+           formControlName="Responsibility">
+    </mat-form-field>
+</p>
+
+</mat-card>
+<br>
+        <button mat-raised-button  color= "primary">Update</button>
+
+</form>
+</div>
+</mat-card-content>
+</mat-card>

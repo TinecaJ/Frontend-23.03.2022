@@ -1,1 +1,196 @@
-<p>contexts works!</p>
+
+
+<div class="row w-102">
+    <div class="col-lg-12">
+        <app-navbar></app-navbar>
+    </div>
+</div>
+
+<div class="row w-100">
+    <div class="col-lg-2">
+        <app-sidenav class="sidebar"></app-sidenav>
+    </div>
+
+    <div class="col-lg-10 mb-250 mt-10">
+        <mat-card class="w-80 m-auto">
+
+            <div class="row mb-2">
+                <div class="col-lg-12 ">
+                    <button mat-raised-button class="loginBtn  mr-2"  color="primary" type="button" (click)="showOrgContxFun()">Add New Entry</button>
+                    <input style="display: none" type="file" multiple (change)="handleFileInput($event)" #hiddenfileinput>
+
+            <button mat-raised-button class="loginBtn mr-2 "multiple  color="primary" (click)="hiddenfileinput.click()"  >Upload File</button>
+            <!-- <button mat-raised-button class="loginBtn mr-2" multiple color="primary" type="button"  (click)="onClick()">Upload File</button> -->
+                </div>
+            </div>
+          <!--<div class="cen mt-3" style=position:absolute;left:49%;background-color:white;background-size:100%;>-->  
+                
+                <h1 class="cen" >Organization Context</h1> 
+               
+
+            <br>
+            <br>
+            <hr>
+                <table class="table table-bordered table-striped">
+                   
+                    <thead>
+                        <tr>
+                      
+                        <th>Organization Context</th>
+                        <th>Interested Parties</th>
+                        <th>Organization Scope</th>
+                        <th>Action</th>
+                        
+                    </tr>
+            
+                    </thead>
+                
+                    <tbody>
+                        <tr *ngFor="let context of contexts">
+                            <td><span > {{context.Context}}
+                                |<a class="action-link" [routerLink]="['/contexts/edit', context._id]">Edit</a>
+                                |<a class="action-link" [routerLink]="['/contexts/view', context._id]">View</a> </span></td>
+        
+                            <td><span >{{context.Interested_Parties}} </span></td>
+                            <td><span >{{context.Scope}} </span></td>
+                           
+                            
+                            
+                            <td>
+                            <mat-action-row>
+                                <button mat-button color="primary" (click)="onDelete(context._id)">DELETE</button>
+                            </mat-action-row>
+                        </td>
+                        </tr>
+                    </tbody>
+            
+            
+                </table>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Uploaded Image Files</h3>
+                        <hr>
+                        <table class="table table-bordered table-striped">
+                     
+                            <thead>
+                                <tr>
+                                <th>Files</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let file of images">
+                                    <td><span > {{file._id}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </mat-card>
+
+<br>
+ 
+
+            <div class="w-80  m-auto" *ngIf="showOrgconTextCard">
+           <form [formGroup]= "contextform" (ngSubmit)="onAdd()">
+            <mat-card >
+              <mat-card-content >
+                  <div>
+                      <mat-card>
+                  <mat-form-field>
+                      <mat-label>Enter Context</mat-label>
+                      <input matInput type="text"
+                       class="form-control" id="Context" 
+                        formControlName="Context"
+                         placeholder="Enter Context of Organization">
+                 
+                        </mat-form-field><br>
+                  <button mat-raised-button class="mr-2" color="basic" (click)="openDialog()">Details</button> 
+                  <input  class="action-link cust-checkbox" 
+                  type="checkbox"
+                   class="form-check-input" 
+                    id="contexttick" 
+                    formControlName="contexttick">
+                  <br>
+              </mat-card><br>
+                 
+                      <mat-card>
+                  <mat-form-field>
+                          <mat-label>Enter Interested Parties</mat-label>
+                          <input matInput  type="text" 
+                          class="form-control" 
+                          id="Interested_Parties" 
+                           formControlName="Interested_Parties" 
+                           placeholder="Enter InterestedParties">
+                      </mat-form-field><br>
+                      <button mat-raised-button  class="mr-2" color="basic" (click)="openDialog1()">Details</button> 
+                      <input   type="checkbox" 
+                                class="form-check-input" 
+                                id="IPtick"
+                                formControlName="IPtick">
+                    <br>
+                   </mat-card><br>
+          
+                    <mat-card>
+                      <mat-form-field>
+                          <mat-label>Enter Scope </mat-label>
+                          <input matInput  type="text"
+                          class="form-control" 
+                          id="Scope" placeholder="Enter Scope" 
+                          formControlName="Scope">
+                      </mat-form-field><br>
+                      <button mat-raised-button  class="mr-2" color="basic" (click)="openDialog2()">Details</button>
+                      <input  type="checkbox"
+                      class="form-check-input" 
+                      id="Scopetick"
+                       formControlName="Scopetick">
+                  
+                  </mat-card><br>
+                    
+                  <br>
+                  <mat-card>
+                      <mat-form-field>
+                          <mat-label>Addtional Notes</mat-label>
+                          <input matInput type="text" 
+                          class="form-control" 
+                          id="ScopeUpload"
+                           formControlName="ScopeUpload"
+                            placeholder="Enter Addtional Information or Comments">
+                      </mat-form-field>
+                  </mat-card>
+                  <br>
+                  <button style="margin-left:45% "  mat-raised-button (click)="hideOrgContextFun()" color="primary" class="mr-2">Close</button>
+                      <button  mat-raised-button [disabled]= "!contextform.valid" type="submit" color="primary">Submit</button>
+                  </div>
+              </mat-card-content>        
+          </mat-card>  
+          
+          <br>
+          <br>
+           </form>
+    </div>
+</div>
+
+
+          
+            
+
+
+
+
+
+
+
+
+          
+          
+         
+          
+          
+         
+              
+          
+
+
+

@@ -1,0 +1,104 @@
+<div class="row w-102">
+        <div class="col-lg-12">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    
+    <div class="row w-100">
+        <div class="col-lg-2">
+            <app-sidenav class="sidebar"></app-sidenav>
+        </div>
+    
+        <div class="col-lg-10 mb-250 mt-10 ">
+
+
+<mat-card class="w-80  m-auto">
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+        <mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Resources</mat-label>
+        <input
+        matInput type="string"
+           formControlName="Resources">
+    </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+                 matInput type="boolean"
+                formControlName="Resourcestick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+
+<p>
+        <mat-form-field>
+            <mat-label>Competence</mat-label>
+            <input
+            matInput type="string"
+               formControlName="Competence">
+        </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+            matInput type="boolean"
+                formControlName="Competencetick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Awareness</mat-label>
+            <input
+            matInput type="string"
+                formControlName="Awareness">
+        </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+            matInput type="boolean"
+                formControlName="Awarenesstick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Communication</mat-label>
+            <input
+            matInput type="string"
+                formControlName="Communication">
+        </mat-form-field>
+</p>
+<p>
+    <mat-form-field>
+        <mat-label>Data For Communications Entered</mat-label>
+        <input
+        matInput type="boolean"
+            formControlName="Comtick">
+    </mat-form-field>
+</p>
+</mat-card><br>
+        <button mat-raised-button  color= "primary">Update</button>
+</form>
+</div>
+</mat-card-content>
+</mat-card>
+
+</div>
+</div>
+

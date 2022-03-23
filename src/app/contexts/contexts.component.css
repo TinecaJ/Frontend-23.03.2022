@@ -1,0 +1,54 @@
+
+/* Header style*/
+.cen{
+    text-align: center;
+    color:slateblue;
+    font-size:30px;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonLink{
+-moz-appearance: button; 
+ -webkit-appearance: button;
+ appearance: button; 
+ color: initial;
+ text-decoration: none;  
+  }
+  .action-link{
+    padding:10px;
+  }
+
+  .w-102{
+    width: 102%;
+  }
+
+  .w-80{
+    width: 80%;
+  }
+
+  .m-auto{
+    margin: auto;
+  }
+
+  .mr-2{
+    margin-right: 20px;
+}
+
+.mb-2{
+    margin-bottom: 20px !important;
+}
+
+.mt-5{
+  margin-top: 50px;
+}
+
+
+::ng-deep .cust-checkbox{
+  margin-left: 20px;
+  margin-top: 5px;
+}

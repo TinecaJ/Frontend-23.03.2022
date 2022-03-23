@@ -1,0 +1,25 @@
+.footer{
+    background-color: white;
+    padding: 30px 80px 15px 10%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.f-header{
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+ul li a{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.pl-1{
+    padding-left: 10px;
+    line-height: 30px;
+}

@@ -1,0 +1,70 @@
+<mat-card>
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+        <mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Planning Implementation</mat-label>
+        <input
+        matInput type="string"
+           formControlName="PndI">
+    </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+                 matInput type="boolean"
+                formControlName="PItick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+
+<p>
+        <mat-form-field>
+            <mat-label>Risk Assessment Implementation</mat-label>
+            <input
+            matInput type="string"
+               formControlName="RAndI">
+        </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+            matInput type="boolean"
+                formControlName="AItick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk Treatment Implementation</mat-label>
+            <input
+            matInput type="string"
+                formControlName="RTndI">
+        </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+            matInput type="boolean"
+                formControlName="RTItick">
+        </mat-form-field>
+</p>
+</mat-card><br>
+
+        <button mat-raised-button  color= "primary">Update</button>
+</form>
+</div>
+</mat-card-content>
+</mat-card>
+

@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const pcPart = require("../models/pc-part");
 const PcPart = require("../models/pc-part");
@@ -21,7 +22,7 @@ router.post("",(req,res,next)=>{
 });
 
 // http://localhost:3000/api/pcparts
-router.get("",(req,res,next)=>{
+router.get("/pull",(req,res,next)=>{
     PcPart.find().then(documents=>{
         res.status(201).json({
             message: "PC parts fetched successfully!",
@@ -29,6 +30,38 @@ router.get("",(req,res,next)=>{
         });
     });
 });
+
+
+router.put("/update/:id",(req,res,next)=>{
+
+    const id=req.params.id;
+    PcPart.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
+    .then (data=>{
+        if(!data){
+            res.send({message:'Cannot update'})
+        } else{
+            res.send(data)
+        }
+    })
+    .catch(err=>{
+        res.send({message:'error '})
+    })
+})
+
+router.put("/:id",(req,res,next)=>{
+    const Ty = req.query.type;
+    console.log(req.params.id);
+    PcPart.findByIdAndUpdate({_id:req.params.id}),{
+        $set:{
+          type:ty
+        }
+    }
+    .then(result=>{
+            res.status(200).json({
+                
+            })
+    })
+})
 
 
 router.delete("/:id",(req,res,next)=>{

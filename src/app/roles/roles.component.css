@@ -1,0 +1,38 @@
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* .box {
+    float: left;
+    width: auto;
+    padding: 50px;
+  } */
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .cen{
+    text-align: center;
+    color: slateblue;
+    font-size: 34px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.action-link{
+  padding:10px;
+}
+
+.w-80{
+  width: 80%;
+}
+
+.mr-2{
+  margin-right: 20px;
+}
+

@@ -1,0 +1,447 @@
+
+
+
+<div class="row w-102">
+    <div class="col-lg-12">
+        <app-navbar></app-navbar>
+    </div>
+  </div>
+
+<!--List of User IDs-->
+    
+<div class="row w-100">
+    <div class="col-lg-2">
+        <app-sidenav class="sidebar"></app-sidenav>
+    </div>
+
+    <div class="col-lg-10 mb-250 mt-10 ">
+<mat-card class="w-80 m-auto">
+    <h1 mat-card-header style="text-align:center;color:Black"> <b>List of User IDS</b></h1>
+<div class="container" style="margin-left:0%">
+  <table class="table table-bordered table-striped">
+      <thead>
+          <tr>
+          <th>User IDs</th>
+      </tr>
+      </thead>
+      <tbody>
+          
+          <tr *ngFor= "let context of contexts">
+              <td><span >{{context._userId}}</span></td>
+           
+          </tr>
+      </tbody>
+  </table>
+</div>
+</mat-card>
+
+<br>
+<!--Search Bar------------------------------------------------------------------------------------------------------------------------>
+<div class="search-hero ml-5">
+    <input type="text" class="ml-10p" name="search" [(ngModel)]= "searchText" placeholder="Search by user ID here">
+<!--CONTEXT REPORT------------------------------------------------------------------------------------------------------>
+
+    
+          
+<h1 mat-header style="text-align:center;color:Black"> <b>Context Report</b></h1>
+<mat-card  class="w-80 m-auto">
+  <div class="container" style="margin-left:0%">
+      <table class="table table-bordered table-striped">
+         
+          <thead>
+              <tr>
+           
+            
+              <th>Organization Context</th>
+                <th>Interested Parties</th>
+                <th>Organization Scope</th>
+                
+             
+          </tr>
+  
+          </thead>
+      
+          <tbody>
+              <tr *ngFor= "let context of contexts | filter:searchText">
+                  <td><span >{{context.Context}}</span></td>
+                  
+                  <td><span > {{context.Interested_Parties}} </span></td>
+                  
+                  <td><span > {{context.Scope}}</span></td>
+                  
+                  
+                  
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  </mat-card>
+    <br>
+    <br>
+    <br>
+    <!--
+  <mat-card>
+    <mat-card-header>Context</mat-card-header>
+    <mat-card-content>
+        <mat-accordion multi="true">
+            <mat-expansion-panel *ngFor= "let context of contexts">
+                <mat-expansion-panel-header>
+                    {{context.Context}} {{context.Interested_Parties}}
+                </mat-expansion-panel-header>
+                 Context: {{context.Context}} <br>
+                 Brand: {{context.Interested_Parties}} <br>
+                 Spec: {{context.IP_upload}} <br>
+                 Quantity: {{context.contexttick}} <br>
+                 Unit Cost: {{context.IPtick}} <br>
+                 Unit Cost: {{context.Scopetick}} <br>
+                 Unit Cost: {{context.Scope}} <br>
+                 Unit Cost: {{context.ScopeUpload}} <br>
+                 
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card> 
+-->
+
+<!--ROLES TABLE FOR EACH Orgnization------------------------------------------------------------------------------------------------------>
+<!--https://www.youtube.com/watch?v=vZ91vDD7FGY-->
+<h1 mat-header style="text-align:center;color:Black"> <b>Role Report</b></h1>
+<mat-card  class="w-80 m-auto">
+    <!--
+    <div class="search-hero">
+<input type="text" name="search" [(ngModel)]= "searchText">
+    </div>
+    -->
+  <div class="container" style="margin-left:0%">
+      <table class="table table-bordered table-striped">
+         
+          <thead>
+              <tr>
+            <mat-card-header color="primary"> <th >Type</th></mat-card-header> 
+              <th>Role ID</th>
+             
+          </tr>
+  
+          </thead>
+      
+          <tbody>
+              <tr *ngFor= "let role of roles | filter:searchText">
+                  <td><span >{{role._id}}</span></td>
+                  <td><span >{{role.Job_title}}</span></td>
+                  
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  </mat-card>
+
+  
+<!--
+<mat-toolbar style="margin-top:10%">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Report</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" (click)="openDialog()">Add</button>
+  </mat-toolbar>
+-->
+<!--RISKD REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Planning Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+              
+                <th>Requirement</th>
+                <th>Risk</th>
+               
+                <th>Action</th>
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let riskd of riskds | filter:searchText">
+                    
+
+                    <td style="text-align:left"><span >{{riskd.Requirements}}
+                        |<a class="action-link" [routerLink]="['/riskd/view', riskd._id]">View</a> </span></td>
+                    <td><span >{{riskd.Risk}} </span></td>
+                    <td>
+                  
+                    
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+
+
+<!--Support REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Support Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+               
+                <th>Resources</th>
+                <th>Competence</th>
+                <th>Awareness</th>
+                <th>Communication</th>
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let support of supports | filter:searchText">
+                    <td><span >{{support.Resources}}<br>
+                      |<a class="action" [routerLink]="['/support/view', support._id]">View</a> </span></td>
+                    
+                    <td><span>{{support.Competence}}</span></td>
+                    <td><span>{{support.Awareness}}</span></td>
+                    <td><span>{{support.Communication}}</span></td>
+                    
+                
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+</div>
+
+<!--Support REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Policy Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+               
+                <th>Policy Entries</th>
+                
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let support of policies | filter:searchText">
+                    <td><span >{{support._id}}<br>
+                      |<a class="action" [routerLink]="['/policies/view', support._id]">View</a> </span></td>
+                    
+                
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+
+
+<!--Operation REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Operation Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+             
+                <th>Planning Implementation</th>
+                <th>Risk Assessment Implementation</th>
+                <th>Risk Treatment Implementation</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let operation of operations | filter:searchText">
+                  <!--<pre> {{ operation| json}}</pre>-->
+                    <td><span >{{operation.PndI}}<br>
+                      |<a class="action" [routerLink]="['/operation/view', operation._id]">View</a> </span></td>
+                      <td><span >{{operation.RAndI}} </span></td>
+                      <td><span >{{operation.RTndI}} </span></td>
+                      
+                      <td>
+              
+                </tr>
+            </tbody>
+    
+        </table>
+    </div>
+    </mat-card>
+    
+
+    
+<!--Improvement REPORT------------------------------------------------------------------------------------------------------------------------>
+
+    <mat-card  class="w-80 m-auto">
+        <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Improvement Report</b></h1>
+        <div class="container" style="margin-left:0%">
+            <table class="table table-bordered table-striped">
+               
+                <thead>
+                    <tr>
+                 
+                    <th>Method of Improvement</th>
+                   
+                </tr>
+        
+                </thead>
+            
+                <tbody>
+                    <tr *ngFor= "let imp of improvements | filter:searchText">
+                      <!--<pre> {{ operation| json}}</pre>-->
+                        <td><span >{{imp.Text}}<br>
+                          |<a class="action" [routerLink]="['/improvement/view', imp._id]">View</a>  </span></td>
+                          <td>
+                           
+                          </td>
+                          
+                          
+                        
+                        
+                        
+                    
+                    </tr>
+                </tbody>
+        
+        
+            </table>
+        </div>
+        </mat-card>
+
+<!--Leadership and committment REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Leadership and Commitment Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+             
+                <th>Leadership Entries</th>
+               
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let imp of lcs | filter:searchText">
+                  <!--<pre> {{ operation| json}}</pre>-->
+                    <td><span >{{imp._id}}<br>
+                      |<a class="action" [routerLink]="['/lc/view', imp._id]">View</a>  </span></td>
+                      <td>
+                       
+                      </td>
+                      
+                      
+                    
+                    
+                    
+                
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+
+
+ <!--Performance Evaluation REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b>Performance Evaluation Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+             
+                <th></th>
+               
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let imp of pes| filter:searchText">
+                  <!--<pre> {{ operation| json}}</pre>-->
+                    <td><span >{{imp._id}}<br>
+                      |<a class="action" [routerLink]="['/pe/view', imp._id]">View</a>  </span></td>
+                      <td>
+                       
+                      </td>
+                      
+                      
+                    
+                    
+                    
+                
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+
+<!--File REPORT------------------------------------------------------------------------------------------------------------------------>
+
+<mat-card  class="w-80 m-auto">
+    <h1 mat-header style="text-align:center;color:Black" color="primary"> <b> File Report</b></h1>
+    <div class="container" style="margin-left:0%">
+        <table class="table table-bordered table-striped">
+           
+            <thead>
+                <tr>
+             
+                <th>File</th>
+               
+            </tr>
+    
+            </thead>
+        
+            <tbody>
+                <tr *ngFor= "let imp of images | filter:searchText">
+                  <!--<pre> {{ operation| json}}</pre>-->
+                    <td><span >{{imp.filename}}<br>
+                      |<a class="action" (click)="openImageViewr(imp)">View</a>  </span></td>
+                      <td>
+                       
+                      </td>
+                </tr>
+            </tbody>
+    
+    
+        </table>
+    </div>
+    </mat-card>
+
+    <div class="imageViewr" *ngIf="showImgViewr">
+        <div class="row">
+            <div class="col-lg-12 text-right">
+               <a (click)="closeImgViewer()">X</a>
+            </div>
+        </div>
+        <img [src]="selectedImg.pic" alt="">
+    </div>
+
+    </div>
+    </div>
+   

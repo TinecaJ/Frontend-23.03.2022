@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+<p>
+    <mat-form-field>
+        <mat-label>Oragnization Context</mat-label>
+        <input
+        matInput type="string"
+           formControlName="Context">
+    </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Interested Parties</mat-label>
+            <input
+                 matInput type="string"
+                formControlName="Interested_Parties">
+        </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Organization Scope</mat-label>
+            <input
+            matInput type="string"
+               formControlName="Scope">
+        </mat-form-field>
+</p>
+
+        <button mat-raised-button  color= "primary">Update</button>
+</form>
+</div>
+</mat-card-content>
+</mat-card>

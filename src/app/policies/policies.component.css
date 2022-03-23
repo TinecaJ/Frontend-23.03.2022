@@ -1,0 +1,21 @@
+.cen{
+    text-align:center;
+   
+    color:slateblue;
+    font-size:30px;
+    top:20%;
+}
+.new{
+   text-align:absolute;
+    left:20%;
+    
+    background-position: 100%;
+    background-color: white;
+    
+        
+}
+
+.action-link{
+    padding:10px;
+}
+

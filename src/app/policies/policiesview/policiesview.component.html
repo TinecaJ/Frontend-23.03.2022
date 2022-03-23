@@ -1,0 +1,20 @@
+<mat-card class="user-details" *ngIf= "userdetails">
+    <mat-card-title color:primary;>Policy Report</mat-card-title>
+    <br> 
+    <mat-card-content><b style="padding:10px;">ID:</b>{{userdetails._id}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Is Appropriate:</b>{{userdetails.Objectives}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Includes Objectives:</b>{{userdetails.Appropriate}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Includes Commitment:</b>{{userdetails.CommitmentReq}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Is Appropriate:</b>{{userdetails.CommitmentImprov}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Is Available:</b>{{userdetails.Available}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Communication:</b>{{userdetails.CommunicatedOrg}}</mat-card-content>
+    <br>
+    <mat-card-content><b style="padding:10px;">Addtional Information:</b>{{userdetails.Othertxt}}</mat-card-content>
+    
+</mat-card>

@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+        <mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Improvement</mat-label>
+        <input
+        matInput type="string"
+           formControlName="Text">
+    </mat-form-field>
+</p>
+
+<p>
+        <mat-form-field>
+            <mat-label>Data Uploaded</mat-label>
+            <input
+                 matInput type="boolean"
+                formControlName="CorrectiveAction">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<br>
+
+        <button mat-raised-button  color= "primary">Update</button>
+</form>
+</div>
+</mat-card-content>
+</mat-card>
+
+

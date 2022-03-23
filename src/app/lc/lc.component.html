@@ -1,0 +1,261 @@
+
+<div class="row w-102">
+    <div class="col-lg-12">
+        <app-navbar></app-navbar>
+    </div>
+</div>
+
+<div class="row w-100">
+    <div class="col-lg-2">
+        <app-sidenav class="sidebar"></app-sidenav>
+    </div>
+
+    <div class="col-lg-10 mb-250 mt-10">
+
+        <mat-card class="w-80 m-auto">
+
+            <div class="row mb-2">
+                <div class="col-lg-12 ">
+                    <button mat-raised-button class="loginBtn  mr-2"  color="primary" type="button" (click)="showOrgLCFun()">Add New Entry</button>
+                   
+                </div>
+            </div>
+
+            <h1 class="cen">Leadership and Commitment </h1> 
+            <p style="text-align:center"> <b>Top management is referred to as a person or group of people who manages and controls the organization of the ISMS to the highest level. The following is a checklist of reponsibilities for management.</b></p>
+        <mat-card>
+            <div class="container" style="margin-left:0%">
+                <table class="table table-bordered table-striped">
+                   
+                    <thead>
+                        <tr>
+                     
+                        <th>Data Entered</th>
+                        <th>Acntion</th>
+                        
+                    </tr>
+            
+                    </thead>
+                
+                    <tbody>
+                        <tr *ngFor="let lc of lcs">
+                          <!--<pre> {{ operation| json}}</pre>-->
+                            <td><span >{{lc.Policy}}<br>
+                              |<a class="action" [routerLink]="['/lc/edit', lc._id]">Edit</a>
+                              |<a class="action" [routerLink]="['/lc/view', lc._id]">View</a>  </span></td>
+                              <td>
+                                <mat-action-row>
+                                  <button mat-button color="primary" (click)="onDelete(lc._id)">DELETE</button>
+                              </mat-action-row>
+                              </td>
+                        
+                        </tr>
+                    </tbody>
+            
+            
+                </table>
+            </div>
+            </mat-card>
+        </mat-card>
+
+<div class="sect" class="sect mt-5 p-5" *ngIf="showOrgLCCard">
+    <form [formGroup]= "lcform" (ngSubmit)="onAdd()">
+
+        <div class="form-check">
+            
+            <input class="form-check-input" type="checkbox" value="" color="violet" formControlName="Policy"  id="Policy">
+            <label class="form-check-label" for="Policy" 
+            matTooltip="Ensuring the information security  policy and information security objectives are established and
+            are compatible with strategic direction of the organization."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Information Security Policy and Objectives
+            </label>
+   
+          </div>
+            <br>
+          <div class="form-check">
+            
+            <input class="form-check-input" type="checkbox" value="" formControlName="Integration"  id="Integration">
+            <label class="form-check-label" for="Integration" 
+            matTooltip="Ensuring the integration of the information security system requirements into the organization’s processes."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Integration of Information Security Managment System
+            </label>
+        
+          </div>
+          <br>
+          <div class="form-check">
+          
+            <input class="form-check-input" type="checkbox" value=""  formControlName="AvailabilityofResources" id="AvailabilityofResources">
+            <label class="form-check-label" for="AvailabilityofResources" 
+            matTooltip="Ensuring that the resources needed for the information security management system is available."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Availability of Resources
+            </label>
+       
+          </div>
+          <br>
+          <div class="form-check">
+           
+            <input class="form-check-input" type="checkbox" value="" formControlName="Communication"  id="Communication">
+            <label class="form-check-label" for="Communication" 
+            matTooltip="Communicating the importance of effective information security management and of conforming to the requirements information security management system."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Communication
+            </label>
+        
+          </div>
+          <br>
+          <div class="form-check" color="primary">
+          
+            <input class="form-check-input" type="checkbox" value="" formControlName="Improvement"  id="Improvement">
+            <label class="form-check-label" for="Improvement" 
+            matTooltip="Ensuring that the information security management system achieves the required outcome."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Outcome Met
+            </label>
+        
+          </div>
+          <br>
+          <div class="form-check" color="primary">
+            
+            <input class="form-check-input" type="checkbox" value="" formControlName="Achievements"  id="Achievements">
+            <label class="form-check-label" for="Achievements" 
+            matTooltip="Directing and supporting persons to contribute to the effectiveness of the information security management system."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Direction and Support
+            </label>
+       
+          </div>
+          <br>
+          <div class="form-check">
+            
+            <input class="form-check-input" type="checkbox" value="" formControlName="Demo"  id="Demo">
+            <label class="form-check-label" for="Demo" 
+            matTooltip="Promoting continual improvement"
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+           Improvement
+            </label>
+     
+          </div>
+          <br>
+          <div class="form-check">
+           
+            <input class="form-check-input" type="checkbox" value="" formControlName="Leadership"  id="Leadership">
+            <label class="form-check-label" for="Leadership" 
+            matTooltip="Supporting other relevant management roles to demonstarte their leaderhsip as it applies to their areas of responsibilities."
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">
+            Demonstration of Leadership
+            </label>
+      
+          </div>
+          <mat-card>
+            <mat-form-field>
+                    <mat-label>Enter Interested Parties</mat-label>
+                    <input matInput type="text" 
+                    class="form-control" 
+                    id="Other" 
+                     formControlName="Other" 
+                     placeholder="Enter Additional Information">
+                </mat-form-field><br>
+             </mat-card><br>
+         
+
+          
+
+        <!--
+    <mat-card>
+        <mat-card-content style="text-align:center">
+            <div>
+                <div style="text-align:left;margin-left:5%">
+                
+                    <mat-checkbox [checked]="allComplete" 
+                    [(ngModel)]="Policy" color="primary" 
+                    matTooltip="Ensuring the information security  policy and information security objectives are established and
+                    are compatible with strategic direction of the organization.
+                    "
+                    
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">Information Security Policy and Objectives</mat-checkbox><br>
+               
+                <br>
+                
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Integration" color="primary" matTooltip="Ensuring the integration of the information security system requirements into the organization’s processes.
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">Integration of Information Security Managment System</mat-checkbox><br>
+                
+                <br>
+               
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="AvailabilityofResources" color="primary" matTooltip="Ensuring that the resources needed for the information security management system is available.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right" >Availability of Resources</mat-checkbox><br>
+                
+                <br>
+                
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Communication" color="primary" matTooltip="Communicating the importance of effective information security management and of conforming to the requirements information security management system.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right" >Communication</mat-checkbox><br>
+                
+                <br>
+                
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Improvement" color="primary" matTooltip="Ensuring that the information security management system achieves the required outcome.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">Outcome Met</mat-checkbox><br>
+                
+                <br>
+                
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Achievements" color="primary" matTooltip="Directing and supporting persons to contribute to the effectiveness of the information security management system.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">Direction and Support</mat-checkbox><br>
+                
+                <br>
+               
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Demo" color="primary" matTooltip="Promoting continual improvement.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right" >Improvement</mat-checkbox><br>
+               
+                <br>
+                
+                    <mat-checkbox [checked]="allComplete" [(ngModel)]="Leadership" color="primary" matTooltip="Supporting other relevant management roles to demonstarte their leaderhsip as it applies to their areas of responsibilities.
+
+                    "
+                    aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="right">Demonstration of Leadership</mat-checkbox><br>
+            </div>
+                <br>
+                <br>
+                
+                <div style="text-align:left;margin-left:5%">
+                <mat-form-field>
+                    <mat-label>Other</mat-label>
+                    <input
+                        matInput type="string"
+                        [(ngModel)] = Other
+                        required>
+                </mat-form-field>
+                </div>
+                <br>
+            -->
+
+            <div class="row">
+                <div class="col-12 text-center mt-3 mb-3">
+                    <button style="margin-right:15px " mat-raised-button (click)="hideOrgLCFun()" color="primary" class="mr-2">Close</button>
+                    <button  mat-raised-button   [disabled]= "!lcform.valid" color="primary">Submit</button>
+                </div>
+            </div>
+              
+   
+
+    <!--Leadership and Committment Table--------------------------------------------------------------------------------->
+
+  
+
+
+    </form>
+</div>
+    </div>
+
+</div>

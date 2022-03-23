@@ -1,0 +1,22 @@
+<mat-card class="user-details" *ngIf= "userdetails">
+    <mat-card-title color:primary;>User Roles Report</mat-card-title>
+    <br> 
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">ID:</b>{{userdetails._id}}</mat-card-content>
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Resources:</b>{{userdetails.Job_title}}</mat-card-content>
+    
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Competence:</b>{{userdetails.Responsibility}}</mat-card-content>
+    
+</mat-card>
+    <br>
+    <mat-card>
+    <mat-card-content><b style="padding:10px;">Awareness:</b>{{userdetails.Position}}</mat-card-content>
+
+    <br>
+</mat-card>

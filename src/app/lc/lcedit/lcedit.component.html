@@ -1,0 +1,119 @@
+<div class="row w-102">
+        <div class="col-lg-12">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    
+    <div class="row w-100">
+        <div class="col-lg-2">
+            <app-sidenav class="sidebar"></app-sidenav>
+        </div>
+    
+        <div class="col-lg-10 mb-250 mt-10">
+
+<mat-card class="w-80 m-auto">
+    <mat-card-content>
+
+<div *ngIf= "dataloaded">
+<form [formGroup]=  "edituserform" (submit)="updateuser()">
+        <mat-card>
+<p>
+    <mat-form-field>
+        <mat-label>Requirements</mat-label>
+        <input
+        matInput type="Boolean"
+           formControlName="Policy">
+    </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk</mat-label>
+            <input
+                 matInput type="Boolean"
+                formControlName="Integration">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+
+<p>
+        <mat-form-field>
+            <mat-label>Name of Owner</mat-label>
+            <input
+            matInput type="Boolean"
+               formControlName="AvailabilityofResources">
+        </mat-form-field>
+</p>
+</mat-card><br>
+
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk Acceptance Criteria...</mat-label>
+            <input
+            matInput type="Boolean"
+                formControlName="Communication">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk Acceptance Criteria...</mat-label>
+            <input
+            matInput type="Boolean"
+                formControlName="Improvement">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk Acceptance Criteria...</mat-label>
+            <input
+            matInput type="Boolean"
+                formControlName="Achievements">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+<p>
+        <mat-form-field>
+            <mat-label>Risk Acceptance Criteria...</mat-label>
+            <input
+            matInput type="Boolean"
+                formControlName="Demo">
+        </mat-form-field>
+</p>
+</mat-card><br>
+<mat-card>
+    <p>
+            <mat-form-field>
+                <mat-label>Risk Acceptance Criteria...</mat-label>
+                <input
+                matInput type="Boolean"
+                    formControlName="Leadership">
+            </mat-form-field>
+    </p>
+    </mat-card><br>
+    <mat-card>
+        <p>
+                <mat-form-field>
+                    <mat-label>Risk Acceptance Criteria...</mat-label>
+                    <input
+                    matInput type="String"
+                        formControlName="Other">
+                </mat-form-field>
+        </p>
+        </mat-card><br>
+        <button mat-raised-button  color= "primary">Update</button>
+</form>
+</div>
+</mat-card-content>
+</mat-card>
+
+</div>
+
+</div>
